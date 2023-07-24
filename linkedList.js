@@ -43,7 +43,15 @@ class LinkedList {
     return next.value;
   }
   
-  at(index) {}
+  at(index) {
+    if (index < 0 || index > this.listSize - 1) return;
+    let next = this.nextNode;
+    for (let i = 0; i < index; i++) {
+      next = next.nextNode;
+    }
+    return next.value;
+  }
+
   pop() {}
   contains(value) {}
   find(value) {}
@@ -72,6 +80,9 @@ list.append('a', 'b', 'c');
 showResult('After adding 3 items', list);
 list.prepend('d', 'e', 'f');
 showResult('After prepending 3 items', list);
-console.log(`List size: ${list.size()}\n`);
-console.log(`Head value: ${list.head()}\n`);
-console.log(`Tail value: ${list.tail()}\n`);
+console.log(`List size: ${list.size()}`);
+console.log(`Head value: ${list.head()}`);
+console.log(`Tail value: ${list.tail()}`);
+console.log(`Value at index 2: ${list.at(2)}`);
+console.log(`Value at index -1: ${list.at(-1)}`);
+console.log(`Value at index 999: ${list.at(999)}`);
