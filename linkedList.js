@@ -2,7 +2,7 @@ class LinkedList {
   constructor() {
     this.value = null;
     this.nextNode = null;
-    this.size = 0;
+    this.listSize = 0;
   }
 
   append(...values) {
@@ -16,19 +16,21 @@ class LinkedList {
         }
         next.nextNode = new Node(value);
       }
-      this.size++;
+      this.listSize++;
     });
   }
 
   prepend(...values) {
     values.forEach(value => {
     this.nextNode = new Node(value, this.nextNode);
-    this.size++;
+    this.listSize++;
     });
-    // this.nextNode = new Node(values, this.nextNode);
-    // this.size++;
   }
-  size() {}
+
+  size() {
+    return this.listSize;
+  }
+  
   head() {}
   tail() {}
   at(index) {}
@@ -60,3 +62,4 @@ list.append('a', 'b', 'c');
 showResult('After adding 3 items', list);
 list.prepend('d', 'e', 'f');
 showResult('After prepending 3 items', list);
+console.log(`List size: ${list.size()}`);
