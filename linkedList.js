@@ -20,7 +20,14 @@ class LinkedList {
     });
   }
 
-  prepend(value) {}
+  prepend(...values) {
+    values.forEach(value => {
+    this.nextNode = new Node(value, this.nextNode);
+    this.size++;
+    });
+    // this.nextNode = new Node(values, this.nextNode);
+    // this.size++;
+  }
   size() {}
   head() {}
   tail() {}
@@ -50,4 +57,6 @@ function showResult(description, object) {
 const list = new LinkedList();
 showResult('Empty', list)
 list.append('a', 'b', 'c');
-showResult('After adding 4 items', list);
+showResult('After adding 3 items', list);
+list.prepend('d', 'e', 'f');
+showResult('After prepending 3 items', list);
