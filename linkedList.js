@@ -31,8 +31,18 @@ class LinkedList {
     return this.listSize;
   }
   
-  head() {}
-  tail() {}
+  head() {
+    return this.nextNode.value;
+  }
+
+  tail() {
+    let next = this.nextNode;
+    while (next.nextNode) {
+      next = next.nextNode;
+    }
+    return next.value;
+  }
+  
   at(index) {}
   pop() {}
   contains(value) {}
@@ -62,4 +72,6 @@ list.append('a', 'b', 'c');
 showResult('After adding 3 items', list);
 list.prepend('d', 'e', 'f');
 showResult('After prepending 3 items', list);
-console.log(`List size: ${list.size()}`);
+console.log(`List size: ${list.size()}\n`);
+console.log(`Head value: ${list.head()}\n`);
+console.log(`Tail value: ${list.tail()}\n`);
