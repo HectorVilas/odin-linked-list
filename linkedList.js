@@ -52,7 +52,14 @@ class LinkedList {
     return next;
   }
 
-  pop() {}
+  pop() {
+    let next = this.nextNode;
+    do {
+      next = next.nextNode;
+    } while (next.nextNode.nextNode);
+    next.nextNode = null;
+  }
+
   contains(value) {}
   find(value) {}
   toString() {}
@@ -86,3 +93,8 @@ console.log(`Tail value: ${list.tail()}`);
 showResult('Value at index 2', list.at(2));
 showResult('Value at index -1', list.at(-1));
 showResult('Value at index 999', list.at(999));
+list.pop();
+showResult('After removing last item', list);
+list.pop();
+list.pop();
+showResult('After removing last items 2 more times', list);
