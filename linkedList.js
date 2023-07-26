@@ -60,7 +60,16 @@ class LinkedList {
     next.nextNode = null;
   }
 
-  contains(value) {}
+  contains(value) {
+    let isOnList = false;
+    let next = this.nextNode;
+    while (next.nextNode && !isOnList) {
+      if (next.value === value) isOnList = true;
+      next = next.nextNode;
+    }
+    return isOnList;
+  }
+
   find(value) {}
   toString() {}
   // insertAt(value, index) {}
@@ -95,6 +104,5 @@ showResult('Value at index -1', list.at(-1));
 showResult('Value at index 999', list.at(999));
 list.pop();
 showResult('After removing last item', list);
-list.pop();
-list.pop();
-showResult('After removing last items 2 more times', list);
+console.log(`List contains 'z': ${list.contains('z')}`);
+console.log(`List contains 'a': ${list.contains('a')}`);
