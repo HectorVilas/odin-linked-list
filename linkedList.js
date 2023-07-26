@@ -49,7 +49,7 @@ class LinkedList {
     for (let i = 0; i < index; i++) {
       next = next.nextNode;
     }
-    return next.value;
+    return next;
   }
 
   pop() {}
@@ -83,6 +83,6 @@ showResult('After prepending 3 items', list);
 console.log(`List size: ${list.size()}`);
 console.log(`Head value: ${list.head()}`);
 console.log(`Tail value: ${list.tail()}`);
-console.log(`Value at index 2: ${list.at(2)}`);
-console.log(`Value at index -1: ${list.at(-1)}`);
-console.log(`Value at index 999: ${list.at(999)}`);
+showResult('Value at index 2', list.at(2));
+showResult('Value at index -1', list.at(-1));
+showResult('Value at index 999', list.at(999));
