@@ -82,7 +82,16 @@ class LinkedList {
     return valueIndex;
   }
 
-  toString() {}
+  toString() {
+    let next = this.nextNode;
+    let string = `( ${next.value} )`;
+    while (next.nextNode) {
+      string += ` -> ( ${next.nextNode.value} )`;
+      next = next.nextNode;
+    }
+    string += ` -> null`;
+    return string;
+  }
   // insertAt(value, index) {}
   // removeAt(index) {}
 }
@@ -119,3 +128,4 @@ console.log(`List contains 'z': ${list.contains('z')}`);
 console.log(`List contains 'a': ${list.contains('a')}`);
 console.log(`Index of 'z': ${list.find('z')}`);
 console.log(`Index of 'a': ${list.find('a')}`);
+console.log(`List to string: ${list.toString()}`);
