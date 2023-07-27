@@ -70,7 +70,18 @@ class LinkedList {
     return isOnList;
   }
 
-  find(value) {}
+  find(value) {
+    let valueIndex = null;
+    let currentIndex = 0;
+    let next = this.nextNode;
+    while (next.nextNode && !valueIndex) {
+      if (next.value === value) valueIndex = currentIndex;
+      next = next.nextNode;
+      currentIndex++;
+    }
+    return valueIndex;
+  }
+
   toString() {}
   // insertAt(value, index) {}
   // removeAt(index) {}
@@ -106,3 +117,5 @@ list.pop();
 showResult('After removing last item', list);
 console.log(`List contains 'z': ${list.contains('z')}`);
 console.log(`List contains 'a': ${list.contains('a')}`);
+console.log(`Index of 'z': ${list.find('z')}`);
+console.log(`Index of 'a': ${list.find('a')}`);
