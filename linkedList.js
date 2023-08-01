@@ -58,6 +58,7 @@ class LinkedList {
       next = next.nextNode;
     } while (next.nextNode.nextNode);
     next.nextNode = null;
+    this.listSize--;
   }
 
   contains(value) {
@@ -110,22 +111,22 @@ function showResult(description, object) {
   );
 }
 
-const list = new LinkedList();
-showResult('Empty', list)
-list.append('a', 'b', 'c');
-showResult('After adding 3 items', list);
-list.prepend('d', 'e', 'f');
-showResult('After prepending 3 items', list);
-console.log(`List size: ${list.size()}`);
-console.log(`Head value: ${list.head()}`);
-console.log(`Tail value: ${list.tail()}`);
-showResult('Value at index 2', list.at(2));
-showResult('Value at index -1', list.at(-1));
-showResult('Value at index 999', list.at(999));
-list.pop();
-showResult('After removing last item', list);
-console.log(`List contains 'z': ${list.contains('z')}`);
-console.log(`List contains 'a': ${list.contains('a')}`);
-console.log(`Index of 'z': ${list.find('z')}`);
-console.log(`Index of 'a': ${list.find('a')}`);
-console.log(`List to string: ${list.toString()}`);
+const myList = new LinkedList();
+showResult('Empty', myList)
+myList.append('a', 'b', 'c');
+showResult('After adding 3 items', myList);
+myList.prepend('d', 'e', 'f');
+showResult('After prepending 3 items', myList);
+console.log(`List size: ${myList.size()}`);
+console.log(`Head value: ${myList.head()}`);
+console.log(`Tail value: ${myList.tail()}`);
+showResult('Value at index 2', myList.at(2));
+showResult('Value at index -1', myList.at(-1));
+showResult('Value at index 999', myList.at(999));
+myList.pop();
+showResult('After removing last item', myList);
+console.log(`List contains 'z': ${myList.contains('z')}`);
+console.log(`List contains 'a': ${myList.contains('a')}`);
+console.log(`Index of 'z': ${myList.find('z')}`);
+console.log(`Index of 'a': ${myList.find('a')}`);
+console.log(`List to string: ${myList.toString()}`);
